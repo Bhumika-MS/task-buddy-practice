@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Buddy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f2f5ff;
+        }
+
+        main {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+        }
+
+        input, button {
+            padding: 11px;
+            margin-top: 8px;
+        }
+
+        input { width: 65%; }
+        button { cursor: pointer; }
+        li { margin: 12px 0; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Task Buddy ✅</h1>
+        <p>Your first Python-powered practice website.</p>
+
+        <form method="POST">
+            <input
+                type="text"
+                name="task"
+                placeholder="Enter a task"
+                required
+            >
+            <button type="submit">Add Task</button>
+        </form>
+
+        <h2>My Tasks</h2>
+
+        {% if tasks %}
+            <ul>
+                {% for task in tasks %}
+                    <li>{{ task["title"] }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tasks added yet.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
